@@ -13,7 +13,7 @@ import logging
 import os
 from selenium.webdriver.firefox.options import Options
 import sqlalchemy
-
+import time
 
 parser = argparse.ArgumentParser()
 parser.add_argument("string")
@@ -26,7 +26,7 @@ print(args.string)
 options = Options()
 options.headless=True
 try:
-    driver = webdriver.Firefox(executable_path="/home/nan/webscraping/firefox",options=options)
+    driver = webdriver.Firefox(executable_path="/home/nan/webscraping/geckodriver",options=options)
     link = "https://dzirkstele.lv/vietejas-zinas/visas-zinas" if args.string == "dzirkstele" else "https://www.gulbene.lv/lv/"
     print(link)
     driver.get(link)
@@ -38,8 +38,9 @@ try:
         ".news.articles .namelink" if args.string == "dzirkstele" else "h2 a[itemprop='url']")
     elem2 = driver.find_elements_by_css_selector(
         ".news.articles .intro" if args.string == "dzirkstele" else "div[itemprop='blogPost']")
+    time.sleep(6)
     driver.find_element_by_css_selector(
-        ".css-47sehv").click() if args.string == "dzirkstele" else ""
+        "button[aria-label='PIEKRĪTU']").click() if args.string == "dzirkstele" else ""
     vol = []
     db_socket_dir = os.environ.get("DB_SOCKET_DIR", "/cloudsql")
    # cloud_sql_connection_name = os.environ["exemplary-proxy-322717:europe-central2:postcollector"]
@@ -58,7 +59,7 @@ try:
     port = 465  # For SSL
     smtp_server = "smtp.gmail.com"
     sender_email = "mwslatvia@gmail.com"  # Enter your address
-    receiver_email = "rmagone@gmail.com"  # Enter receiver address
+    receiver_email = "kristina.kravale@gmail.com"  # Enter receiver address
     password = "Gladiator1992"
     message = MIMEMultipart("alternative")
     message["Subject"] = "Daily report from: "+args.string
