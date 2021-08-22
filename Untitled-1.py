@@ -11,7 +11,7 @@ import argparse
 import datetime
 import logging
 import os
-
+from selenium.webdriver.firefox.options import Options
 import sqlalchemy
 
 
@@ -20,12 +20,13 @@ parser.add_argument("string")
 
 args = parser.parse_args()
 print(args.string)
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--headless')
-chrome_options.add_argument('--no-sandbox')
+#chrome_options = webdriver.ChromeOptions()
+#chrome_options.add_argument('--headless')
+#chrome_options.add_argument('--no-sandbox')
+options = Options()
+options.headless=True
 try:
-    driver = webdriver.Chrome(
-        "/home/nan/Downloads/AutomationOnPython/chromedriver",chrome_options=chrome_options)
+    driver = webdriver.Firefox(executable_path="/home/nan/webscraping/firefox",options=options)
     link = "https://dzirkstele.lv/vietejas-zinas/visas-zinas" if args.string == "dzirkstele" else "https://www.gulbene.lv/lv/"
     print(link)
     driver.get(link)
