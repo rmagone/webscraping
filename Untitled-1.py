@@ -1,9 +1,4 @@
 from selenium.webdriver.firefox.options import Options
-<<<<<<< HEAD
-import time
-from features.helpers.sql_helper import fetch_db_data, store_data_in_table
-from features.helpers.email_helper import send_email
-=======
 import sqlalchemy
 import time
 
@@ -15,16 +10,10 @@ print(args.string)
 #chrome_options = webdriver.ChromeOptions()
 #chrome_options.add_argument('--headless')
 #chrome_options.add_argument('--no-sandbox')
->>>>>>> d60b32e4a18b85bf2e297c960954304dcd8db305
 options = Options()
 options.headless = False
 try:
-<<<<<<< HEAD
-    driver = webdriver.Firefox(
-        executable_path="/home/nan/Downloads/AutomationOnPython/geckodriver", options=options)
-=======
     driver = webdriver.Firefox(executable_path="/home/nan/webscraping/geckodriver",options=options)
->>>>>>> d60b32e4a18b85bf2e297c960954304dcd8db305
     link = "https://dzirkstele.lv/vietejas-zinas/visas-zinas" if args.string == "dzirkstele" else "https://www.gulbene.lv/lv/"
     print(link)
     driver.get(link)
@@ -38,11 +27,6 @@ try:
         ".news.articles .intro" if args.string == "dzirkstele" else "div[itemprop='blogPost']")
     time.sleep(6)
     driver.find_element_by_css_selector(
-<<<<<<< HEAD
-        ".css-47sehv").click() if args.string == "dzirkstele" else ""
-
-    vol = []
-=======
         "button[aria-label='PIEKRĪTU']").click() if args.string == "dzirkstele" else ""
     vol = []
     db_socket_dir = os.environ.get("DB_SOCKET_DIR", "/cloudsql")
@@ -69,7 +53,6 @@ try:
     message["From"] = sender_email
     message["To"] = receiver_email
     text = ""
->>>>>>> d60b32e4a18b85bf2e297c960954304dcd8db305
     for element in elem:
         print('-------------------------')
         data = fetch_db_data("table name")

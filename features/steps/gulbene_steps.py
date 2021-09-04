@@ -1,8 +1,9 @@
+import time
 from behave import *
 from selenium.webdriver.common.by import By
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from features.page.gulbene_page import getTitle, getDescription
+from features.page.gulbene_page import getTitle, getDescription,cookieAgreement
 from features.helpers.email_helper import send_email
 from features.helpers.sql_helper import store_data_in_table, fetch_db_data
 
@@ -10,7 +11,10 @@ from features.helpers.sql_helper import store_data_in_table, fetch_db_data
 @given(u'launch "{page}" page')
 def launch_gulbene_page(context, page):
     print(context)
-    link = "https://www."+page+".lv/lv/"
+    if page =="dzirkstele":
+        link = "https://dzirkstele.lv/vietejas-zinas/visas-zinas"
+    else:
+         link = "https://www."+page+".lv/lv/"
     print(link)
     context.webpage = page
     context.browser.get(link)
@@ -18,6 +22,9 @@ def launch_gulbene_page(context, page):
 
 @when('I read data')
 def read_page_data(context):
+    if context.webpage == "dzirkstele":
+        time.sleep(6)
+        cookieAgreement(context).click()
     elem = getTitle(context, context.webpage)
     elem2 = getDescription(context, context.webpage)
     data_to_send = []
