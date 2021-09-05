@@ -50,9 +50,12 @@ def read_page_data(context):
 def store_data(context):
     if len(context.data_to_store) > 1:
         store_data_in_table(context.webpage, context.data_to_store)
-
+    else:
+        print("nothing to send")
 
 @when('send email')
 def send_emails(context):
     if len(context.data_to_send) > 0:
         send_email(context.webpage, context.data_to_send)
+    else:
+        print("nothing to send")
