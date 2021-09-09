@@ -4,12 +4,12 @@ from email.header import Header
 import smtplib
 
 
-def send_email(page_name,vol):
+def send_email(page_name,vol,context):
     try:
         port = 465  # For SSL
         smtp_server = "smtp.gmail.com"
         sender_email = "mwslatvia@gmail.com"  # Enter your address
-        receiver_email = "rmagone@gmail.com"  # Enter receiver address
+        receiver_email = context.config.userdata.get("emailReceiver")  # Enter receiver address
         password = "Gladiator1992"
         message = MIMEMultipart("alternative")
         message["Subject"] = "Daily report from: "+page_name
