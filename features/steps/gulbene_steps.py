@@ -33,7 +33,7 @@ def read_page_data(context):
             time.sleep(2)
             i+=1
         print("done")
-        print(context.page_source)
+        print(context.browser.page_source)
         time.sleep(10)
     elem = getTitle(context, context.webpage)
     elem2 = getDescription(context, context.webpage)
