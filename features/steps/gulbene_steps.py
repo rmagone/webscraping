@@ -24,6 +24,7 @@ def launch_gulbene_page(context, page):
 def read_page_data(context):
     if context.webpage == "dzirkstele":
         i=0
+        print("before a while")
         while i>10 :
             print("I am here")
             print(cookieAgreement(context).is_displayed())
