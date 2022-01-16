@@ -26,16 +26,16 @@ def before_scenario(context, scenario):
     else:
         print("content found {}".format(str(stdout_list).split('\\n')))
     options = Options()
-    options.headless = True
+    options.headless = False
 
     if platform.machine().endswith("armv7l"):
         context.browser = webdriver.Firefox(
             executable_path= manageArmDriverDownload(), options=options)
     else:
-                context.browser = webdriver.Firefox(
-            executable_path= manageArmDriverDownload(), options=options)
-        #context.browser = webdriver.Firefox(
-         #   executable_path=GeckoDriverManager().install(), options=options)
+          #      context.browser = webdriver.Firefox(
+           # executable_path= manageArmDriverDownload(), options=options)
+        context.browser = webdriver.Firefox(
+           executable_path=GeckoDriverManager().install(), options=options)
 
 def after_scenario(context, scenario):
     context.browser.close()

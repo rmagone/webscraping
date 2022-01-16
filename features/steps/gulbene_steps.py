@@ -12,7 +12,7 @@ from features.helpers.sql_helper import store_data_in_table, fetch_db_data
 def launch_gulbene_page(context, page):
     print(context)
     if page == "dzirkstele":
-        link = "https://dzirkstele.lv/vietejas-zinas/visas-zinas"
+        link = "https://dzirkstele.lv/category/vietejas-zinas/"
     else:
         link = "https://www."+page+".lv/lv/"
     print(link)
