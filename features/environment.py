@@ -23,6 +23,8 @@ def before_scenario(context, scenario):
         print("content not found")
         os.system("/home/nan/go/bin/cloud_sql_proxy -instances=exemplary-proxy-322717:"
                   + "europe-central2:postcollector=tcp:3306 &")
+        #os.system("/home/nan/cloud_sql_proxy -instances=exemplary-proxy-322717:"
+         #         + "europe-central2:postcollector=tcp:3306 &")
     else:
         print("content found {}".format(str(stdout_list).split('\\n')))
     options = Options()

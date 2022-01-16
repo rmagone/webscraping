@@ -31,7 +31,7 @@ def read_page_data(context):
         #    i+=1
         #finally:
         #    print("continue")
-        #time.sleep(10)
+    time.sleep(4)
     elem = getTitle(context, context.webpage)
     elem2 = getDescription(context, context.webpage)
     data_to_send = []
