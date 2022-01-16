@@ -23,8 +23,15 @@ def launch_gulbene_page(context, page):
 @when('I read data')
 def read_page_data(context):
     if context.webpage == "dzirkstele":
-        time.sleep(6)
-        cookieAgreement(context).click()
+        i=0
+        #try:
+        #    if cookieAgreement(context).is_displayed():
+        #        cookieAgreement(context).click()
+        #    time.sleep(2)
+        #    i+=1
+        #finally:
+        #    print("continue")
+        #time.sleep(10)
     elem = getTitle(context, context.webpage)
     elem2 = getDescription(context, context.webpage)
     data_to_send = []
