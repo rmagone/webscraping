@@ -32,6 +32,8 @@ def read_page_data(context):
                 cookieAgreement(context).click()
             time.sleep(2)
             i+=1
+        print("done")
+        time.sleep(10)
     elem = getTitle(context, context.webpage)
     elem2 = getDescription(context, context.webpage)
     data_to_send = []
