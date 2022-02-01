@@ -14,19 +14,19 @@ import requests
 
 
 def before_scenario(context, scenario):
-    response = subprocess.Popen("ps cax | grep cloud_sql_proxy",
-                                shell=True,
-                                stdout=subprocess.PIPE,
-                                )
-    stdout_list = response.communicate()[0]
-    if(len(stdout_list) < 1):
-        print("content not found")
-        os.system("/home/nan/go/bin/cloud_sql_proxy -instances=exemplary-proxy-322717:"
-                  + "europe-central2:postcollector=tcp:3306 &")
+    #response = subprocess.Popen("ps cax | grep cloud_sql_proxy",
+    #                            shell=True,
+    #                            stdout=subprocess.PIPE,
+    #                            )
+    #stdout_list = response.communicate()[0]
+    #if(len(stdout_list) < 1):
+    #    print("content not found")
+    #    os.system("/home/nan/go/bin/cloud_sql_proxy -instances=exemplary-proxy-322717:"
+    #              + "europe-central2:postcollector=tcp:3306 &")
         #os.system("/home/nan/cloud_sql_proxy -instances=exemplary-proxy-322717:"
          #         + "europe-central2:postcollector=tcp:3306 &")
-    else:
-        print("content found {}".format(str(stdout_list).split('\\n')))
+   # else:
+        # print("content found {}".format(str(stdout_list).split('\\n')))
     options = Options()
     options.headless = True
 
