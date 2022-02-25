@@ -1,10 +1,5 @@
 pipeline{
     agent any
-    parameters {
-        string(name: 'email', defaultValue: 'Mr Jenkins', description: 'Email')
-        string(name: 'host', defaultValue: 'Mr Jenkins', description: 'host')
-
-    }
     stages{
 stage('Installing packages') {
             steps {
