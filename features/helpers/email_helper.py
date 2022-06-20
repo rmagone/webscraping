@@ -10,7 +10,7 @@ def send_email(page_name,vol,context):
         smtp_server = "smtp.gmail.com"
         sender_email = "mwslatvia@gmail.com"  # Enter your address
         receiver_email = context.config.userdata.get("emailReceiver")  # Enter receiver address
-        password = "Gladiator1992"
+        password = "phqxnklfmniqnodu"
         message = MIMEMultipart("alternative")
         message["Subject"] = "Daily report from: "+page_name
         message["From"] = sender_email
