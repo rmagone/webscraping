@@ -47,7 +47,7 @@ try:
     smtp_server = "smtp.gmail.com"
     sender_email = "mwslatvia@gmail.com"  # Enter your address
     receiver_email = "kristina.kravale@gmail.com"  # Enter receiver address
-    password = "Gladiator1992"
+    password = "phqxnklfmniqnodu"
     message = MIMEMultipart("alternative")
     message["Subject"] = "Daily report from: "+args.string
     message["From"] = sender_email
